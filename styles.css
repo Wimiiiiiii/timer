@@ -1,0 +1,78 @@
+:root{
+  --bg:#0f1724; --card:#0b1220; --accent:#06b6d4; --muted:#94a3b8;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial;
+  background:linear-gradient(180deg,#071028 0%, #071a2a 100%);
+  color:#e6eef6; display:flex; align-items:center; justify-content:center;
+  padding:24px;
+}
+.app{
+  width:100%;
+  max-width:1100px;
+  height:100vh; /* prendre toute la hauteur de l'écran */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+h1{font-size:20px; margin:0 0 16px 0; color:var(--accent); text-align:center}
+
+.timer-card{
+  background: transparent; /* plus de fond */
+  border: none;            /* plus de bord */
+  padding: 0;              /* plus d'espace interne */
+  border-radius: 0;        /* plus d'arrondi */
+  box-shadow: none;        /* plus d'ombre */
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+/* temps très grand et occupant l'espace */
+.time{
+  font-size: clamp(64px, 22vw, 240px);
+  text-align:center;
+  font-weight:800;
+  letter-spacing:0.02em;
+  line-height:0.95;
+  margin:0;
+  width:100%;
+  display:block;
+  color: #e6eef6;
+}
+
+/* garder les contrôles accessibles mais moins visibles */
+.controls{display:flex; gap:8px; justify-content:center; margin-top:12px}
+.controls button{
+  background:var(--accent); color:#042029; border:none; padding:8px 12px; border-radius:8px; cursor:pointer;
+  font-weight:600; font-size:14px;
+}
+.controls button[disabled]{opacity:0.45; cursor:default}
+
+.goal-row{display:flex; gap:8px; justify-content:center; align-items:center; margin-top:10px}
+.goal-row input{width:80px; padding:6px 8px; border-radius:6px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:inherit}
+
+.progress{height:8px; background:rgba(255,255,255,0.04); border-radius:10px; overflow:hidden; margin:12px 0; width:100%}
+.progress-inner{height:100%; width:0%; background:linear-gradient(90deg,var(--accent),#7c3aed); transition:width 0.2s ease}
+
+.info{display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:14px; width:100%}
+
+/* masquer uniquement les messages de motivation */
+#message{ display:none; }
+
+#confetti-root{position:fixed; inset:0; pointer-events:none; overflow:hidden}
+
+/* confetti pieces */
+.confetti {
+  position:absolute; width:10px; height:14px; opacity:0.95; transform-origin:center;
+  animation:fall linear forwards;
+}
+@keyframes fall {
+  to { transform: translateY(120vh) rotate(540deg); opacity:0; }
+}
