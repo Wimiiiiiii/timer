@@ -7,7 +7,7 @@ const setGoalBtn = document.getElementById('setGoalBtn');
 const progressBar = document.getElementById('progressBar');
 const bestEl = document.getElementById('best');
 const confettiRoot = document.getElementById('confetti-root');
-
+//test
 let running = false;
 let startTs = 0;
 let elapsedBefore = 0; // ms
